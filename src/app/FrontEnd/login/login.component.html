@@ -1,0 +1,111 @@
+<form
+  [formGroup]="miformulario"
+  (ngSubmit)="guardar()"
+  method="post"
+  class="example-form"
+>
+  <h2>Formulario de Registro</h2>
+  <table class="example-full-width" cellspacing="0" required>
+    <tr>
+      <td>
+        <mat-form-field class="example-full-width" appearance="fill">
+          <input matInput type="text" formControlName="firstname" class="input" required />
+          <br />
+          <mat-label>Nombre</mat-label>
+          <!-- <p *ngIf="campoValido('firstname')">Este campo es requerido</p> -->
+        </mat-form-field>
+      </td>
+    </tr>
+  </table>
+
+  <table class="example-full-width" cellspacing="0" required>
+    <tr>
+      <td>
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Apellido</mat-label>
+          <br />
+          <input matInput type="text" formControlName="lastname" class="input" /> <br />
+          <!-- <p *ngIf="campoValido('lastname')">Este campo es requerido</p> -->
+        </mat-form-field>
+      </td>
+    </tr>
+  </table>
+
+  <table class="example-full-width" cellspacing="0" required>
+    <tr>
+      <td>
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Nombre de usuario</mat-label>
+          <br />
+          <input matInput type="text" formControlName="username" class="input" /> <br />
+          <!-- <p *ngIf="campoValido('username')">Este campo es requerido</p> -->
+        </mat-form-field>
+      </td>
+    </tr>
+  </table>
+
+  <table class="example-full-width" cellspacing="0" required>
+    <tr>
+      <td>
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Ingrese su contraseña</mat-label>
+          <br />
+          <input
+            matInput
+            [type]="hide ? 'password' : 'text'"
+            formControlName="password"
+            id="pass"
+            class="input"
+          />
+          <br />
+          <!-- <p *ngIf="campoValido('password')">
+            Este campo es requerido, debe tener al menos 5 caracteres
+          </p> -->
+          <button
+            mat-icon-button
+            matSuffix
+            (click)="hide = !hide"
+            [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hide"
+          >
+            <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+          </button>
+        </mat-form-field>
+      </td>
+    </tr>
+  </table>
+
+
+  <table class="example-full-width" cellspacing="0">
+    <tr>
+      <td>
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Ciudad</mat-label>
+          <br />
+          <input matInput formControlName="city" class="input" /><br />
+          <!-- <p *ngIf="campoValido('city')">Este campo es requerido</p> -->
+        </mat-form-field>
+      </td>
+      <td>
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>País</mat-label>
+          <br />
+          <input matInput formControlName="country" class="input" /><br />
+          <!-- <p *ngIf="campoValido('country')">Este campo es requerido</p> -->
+        </mat-form-field>
+      </td>
+    </tr>
+  </table>
+
+  
+  <div class="example-button-row">
+    <a href="../principal"
+    ><button mat-raised-button class="button" type="submit" (click)="registerUser()">
+      Registrarse
+    </button></a
+    >
+  </div>
+  <div class="login">
+    ¿Tienes una Cuenta? <a href="../login" >Entrar</a>
+  </div>
+</form>
